@@ -3,21 +3,21 @@ import datetime
 from django.contrib.auth.models import User
 
 
-class Question(models.Model):
-    question_text = models.CharField(max_length=100)
-    pub_date = models.DateField()
-
-    def __str__(self):
-        return self.question_text
-
-
 class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=25)
     points = models.IntegerField(default=0)
 
     def __str__(self):
         return self.choice_text
+
+class Question(models.Model):
+    sphere = models.CharField(max_length=50, blank=True)
+    question_text = models.CharField(max_length=100)
+    choices = models.ForeignKey(Choice, on_delete=models.CASCADE)
+    pub_date = models.DateField()
+
+    def __str__(self):
+        return self.question_text
 
 
 class Answer(models.Model):
@@ -27,3 +27,7 @@ class Answer(models.Model):
 
     def __str__(self):
         return self.user.username
+
+# class Result(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     answers: (Question.pk, Answer.choice) 
