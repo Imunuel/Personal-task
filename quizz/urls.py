@@ -1,8 +1,8 @@
 from rest_framework import routers
-from .views import Question
+from .views import QuestionViewSet
 
 router = routers.SimpleRouter()
 
-router.register(r'questions', Question)
+router.register(r'questions', QuestionViewSet)
 
 urlpatterns = router.urls

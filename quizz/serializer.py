@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import Question, Choice, Answer
+from .models import Question, Choice
 
 
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
-        fields = ('question_text', 'pub_date')
+        fields = ('question_text', 'choices')

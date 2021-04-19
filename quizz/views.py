@@ -5,10 +5,9 @@ from rest_framework import mixins
 from rest_framework.response import Response
 from rest_framework.request import Request
 from .serializer import QuestionSerializer
-from .models import Question, Choice, Answer
+from .models import Question, Choice
 
-
-class Question(viewsets.ModelViewSet):
+ 
+class QuestionViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
-    permission_classes = [IsAuthenticated]
