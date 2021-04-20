@@ -9,5 +9,7 @@ from .models import Question, Choice
 
  
 class QuestionViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Question.objects.all()
     serializer_class = QuestionSerializer
+
+    def get_queryset(self):
+        return Question.objects.prefetch_related('choices').all()
