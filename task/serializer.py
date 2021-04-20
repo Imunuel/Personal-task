@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Answer, Question, TestTask
+from .models import Answer, Question, TestTask, PersonalResult
 
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
@@ -21,3 +21,11 @@ class TestTaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = TestTask
         fields = ('sphere', 'points', 'question')
+
+
+class PersonalResultSerializer(serializers.ModelSerializer):
+    task = TestTaskSerializer
+    answer = AnswerSerializer
+    class Meta:
+        model = PersonalResult
+        fields = ('user', 'task', 'answer', 'condition')
