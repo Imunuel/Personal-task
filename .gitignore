@@ -3,3 +3,8 @@
 
 /quizz/migrations
 /quizz/__pycache__
+
+/homework/migrations
+/homework/__pycache__
+
+db.sqlite3

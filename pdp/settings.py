@@ -21,6 +21,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'quizz.apps.QuizzConfig',
     'task.apps.TaskConfig',
+    'homework.apps.HomeworkConfig',
 
     'rest_framework',
     'django_filters',
@@ -129,7 +130,8 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
+MEDIA_ROOT = os.path.join(BASE_DIR, 'upload_files')
+MEDIA_URL = '/upload_files/'
+
 
 STATIC_URL = '/static/'
