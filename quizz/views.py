@@ -7,7 +7,7 @@ from rest_framework.request import Request
 from .serializer import QuestionSerializer
 from .models import Question, Choice
 
- 
+# view для просмотра вопросов
 class QuestionViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = QuestionSerializer
 

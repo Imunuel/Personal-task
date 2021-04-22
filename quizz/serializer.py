@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Question, Choice
 
-
+#сериалайзеры для связывания данных вопроса и данных ответа
 class ChoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Choice

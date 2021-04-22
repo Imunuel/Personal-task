@@ -4,14 +4,14 @@ from .serializer import AnswerSerializer, QuestionSerializer, TestTaskSerializer
 from django_filters import rest_framework as filters
 from rest_framework import viewsets
 
-
+# view для просмотра всех тестов, вопросов и ответов
 class TestTaskViewSet(viewsets.GenericViewSet, viewsets.mixins.RetrieveModelMixin, viewsets.mixins.ListModelMixin):
     serializer_class = TestTaskSerializer
 
     def get_queryset(self):
         return TestTask.objects.prefetch_related('question').prefetch_related('question').all()
 
-
+# view для просмотра тестов, на которые ответил пользователь с его вариантом ответа
 class PersonalResultViewSet(viewsets.GenericViewSet, viewsets.mixins.RetrieveModelMixin, viewsets.mixins.ListModelMixin):
     serializer_class = PersonalResultSerializer
     filter_backends = (filters.DjangoFilterBackend,)

@@ -2,7 +2,7 @@
 
 Для ограничения возможностей пользователей для view были использованы mixin (RetrieveModelMixin, ListModelMixin), а так же GenericViewSet для переопределения функции get_queryset.
 
-При создании queryset'а для оптимальной работы и уменьшения количества запросов в БД использовался prefetch_related.
+При создании queryset'а для оптимальной работы и уменьшения количества запросов в БД использовался prefetch_related или select_related.
 
 Установленные библиотеки для проекта:
 1. 'rest_framework'
