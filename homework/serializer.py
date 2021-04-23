@@ -40,3 +40,9 @@ class UniquePersonalSerializer(serializers.ModelSerializer):
     class Meta:
         model = PersonalHomework
         fields = ('homework_task', 'homework_file')
+
+# сериалазер для работы с загрузкой файла
+class SpecialPersonalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PersonalHomework
+        fields = ('homework_file',)

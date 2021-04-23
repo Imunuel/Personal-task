@@ -9,7 +9,7 @@ class TestTaskViewSet(viewsets.GenericViewSet, viewsets.mixins.RetrieveModelMixi
     serializer_class = TestTaskSerializer
 
     def get_queryset(self):
-        return TestTask.objects.prefetch_related('question').prefetch_related('question').all()
+        return TestTask.objects.prefetch_related('question').all()
 
 # view для просмотра тестов, на которые ответил пользователь с его вариантом ответа
 class PersonalResultViewSet(viewsets.GenericViewSet, viewsets.mixins.RetrieveModelMixin, viewsets.mixins.ListModelMixin):

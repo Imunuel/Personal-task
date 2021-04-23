@@ -13,7 +13,7 @@ class Homework(models.Model):
 class PersonalHomework(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     homework_task = models.ForeignKey(Homework, on_delete=models.CASCADE)
-    homework_file = models.CharField(max_length=1) #файлы не подгружаются - пока не знаю как
+    homework_file = models.FieldFile()
 
     def __str__(self):
         data = (self.user.username, self.homework_task.homework_name)
